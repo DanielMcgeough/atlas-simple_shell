@@ -9,8 +9,4 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> b527ad7efe9a971761f802f242f18db82d0a7968
