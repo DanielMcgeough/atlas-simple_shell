@@ -15,7 +15,7 @@ int main ()
 	printf("$ ");
 
 	/*The prompt is displayed again each time a command has been executed.*/
-	
+	printf("$ ");
 	/*The command lines are made only of one word. */
 	No arguments will be passed to programs.
 	
