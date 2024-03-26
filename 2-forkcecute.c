@@ -42,5 +42,6 @@ int forkcecute(char **cmd_ln)
 				wait(NULL);
 				/*printf("Child process %d exited\n", pid);*/
 		}
+		free_array(cmd_ln);
 		return 0;
 }

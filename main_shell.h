@@ -11,5 +11,6 @@
 
 char **tokenize(char *buffer, char *delimiter);
 int forkcecute(char **cmd_ln);
+void free_array(char **array);
 
 #endif
