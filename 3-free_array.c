@@ -3,7 +3,7 @@
 /*
  * free_array- liberates memory for dynamically allocated arrays of strings.
  *
- * @i: an integer used to iterate through the array.
+ * @array: the array of strings to be freed.
  *
  * Return: nothing.
  */
