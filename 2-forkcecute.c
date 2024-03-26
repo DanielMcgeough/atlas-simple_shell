@@ -22,7 +22,7 @@ int forkcecute(char **cmd_ln)
         else if (pid == 0)
         {
                 /* Child process */
-                printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);
+                /*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
                 if (execve(cmd_ln[0], cmd_ln, envp) == -1)
                 {
                         perror("execve failed");
@@ -35,7 +35,7 @@ int forkcecute(char **cmd_ln)
                 /* Parent process */
                 /* Wait for the child to exit */
                 wait(NULL);
-                printf("Child process %d exited\n", pid);
+                /*printf("Child process %d exited\n", pid);*/
         }
         return 0;
 }
