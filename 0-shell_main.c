@@ -9,7 +9,7 @@
 * Return: returns an int
 */
 
-int main ()
+int main(void)
 {
 	char *buffer;
 	char **cmd_ln = NULL;
