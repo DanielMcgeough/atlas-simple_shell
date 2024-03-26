@@ -32,6 +32,5 @@ int main ()
 				cmd_ln = tokenize(buffer, " ");
 				forkcecute(cmd_ln);
 		}
-		free(buffer);
 		return (0);
 }
