@@ -39,8 +39,10 @@ char **tokenize(char *buffer, char *delimiter)
 			{
 				perror("tokenize strdup array failure]");
 				for (l = 0; l < i; l++)
+				{
 					free(array[l]);
-					free(array);
+				}
+				free(array);
 						return (NULL);
 			}
 			i++;

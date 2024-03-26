@@ -23,7 +23,7 @@ int forkcecute(char **cmd_ln)
 		{
 			perror("fork failed");
 			return (-1);
-`		}
+		}
 		else if (pid == 0)
 		{
 				/* Child process */
