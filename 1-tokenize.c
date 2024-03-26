@@ -49,5 +49,6 @@ char **tokenize(char *buffer, char *delimiter)
 			portion = strtok(NULL, delimiter);
 		}
 		array[i] = NULL;
+		free(buffer);
 		return (array);
 }
