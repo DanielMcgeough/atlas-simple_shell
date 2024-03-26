@@ -1,5 +1,15 @@
 #include "main_shell.h"
 
+/**
+* tokenize- tokenizes string with space delim
+* @str_ct: int for string count
+* @i: int for a loop through array
+* @l: int for a loop cleanup loop if strdup fails
+* @k: a long int for length of buffer
+* @array: an array to contain tokens in the form of strings
+* @portion: a portion of a string tokenized
+* Return: returns a char
+*/
 char **tokenize(char *buffer, char *delimiter)
 {
         int str_ct = 0, i = 0, l = 0;

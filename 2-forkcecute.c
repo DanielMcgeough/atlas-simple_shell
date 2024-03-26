@@ -1,5 +1,10 @@
 #include "main_shell.h"
-
+/**
+forkcecute- to fork and execute a process
+@pid: a process id
+@envp: an array to hold the environment variables
+Return: returns an int
+*/
 int forkcecute(char **cmd_ln)
 {
         pid_t pid;

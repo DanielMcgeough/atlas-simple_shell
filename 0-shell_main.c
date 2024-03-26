@@ -1,5 +1,14 @@
 #include "main_shell.h"
 
+/**
+* main- this is the function to setup inputs
+* @buffer: buffer to store input
+* @cmd_ln: command line is an array of strings
+* @buffsize: size for limit of buffer
+* @bytes_read: string size of buffer
+* Return: returns an int
+*/
+
 int main ()
 {
         char *buffer;
