@@ -22,7 +22,13 @@ int main(void)
 			bytes_read = getline(&buffer, &buffsize, stdin);
 				if (bytes_read == 1)
 					continue;
+				else if (bytes_read == -1)
+                                {
+                                        free(buffer);
+                                        break;
+                                }
 				buffer[bytes_read - 1] = '\0';
+
 				if (strncmp(buffer, "exit", 4) == 0)
 					break;
 				cmd_ln = tokenize(buffer, " ");
