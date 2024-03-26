@@ -9,4 +9,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+char **tokenize(char *buffer, char *delimiter);
+int forkcecute(char **cmd_ln);
+
 #endif
