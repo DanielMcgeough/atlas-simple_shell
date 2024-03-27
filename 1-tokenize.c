@@ -31,7 +31,7 @@ char **tokenize(char *buffer, char *delimiter)
 		portion = strtok(buffer, delimiter);
 		while (portion != NULL)
 		{
-			array[i] = strdup(portion);
+			array[i] = _strdup(portion);
 			if (array[i] == NULL)
 			{
 				perror("tokenize strdup array failure]");
