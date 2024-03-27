@@ -13,6 +13,7 @@ int forkcecute(char **cmd_ln)
 		/* Check for empty arg array */
 		if (cmd_ln == NULL || cmd_ln[0] == NULL)
 		{
+			free_array(cmd_ln);
 			return (-1);
 		}
 
@@ -28,7 +29,7 @@ int forkcecute(char **cmd_ln)
 			/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
 			if (execve(cmd_ln[0], cmd_ln, envp) == -1)
 			{
-				perror("execve failed");
+				/*perror("execve failed");*/
 				exit(EXIT_FAILURE);
 			}
 			/* exit(EXIT_SUCCESS); */
