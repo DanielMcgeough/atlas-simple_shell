@@ -1,6 +1,6 @@
 #include "main_shell.h"
 
-/*
+/**
  * free_array- liberates memory for dynamically allocated arrays of strings.
  *
  * @array: the array of strings to be freed.

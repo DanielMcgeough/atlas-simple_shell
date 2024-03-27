@@ -1,7 +1,7 @@
 #include "main_shell.h"
 
-/*
- * _memset- sets a specified number of bytes in given memory to
+/**
+ * _memset - sets a specified number of bytes in given memory to
  * a specified value.
  *
  * @mem: pointer to the first byte in memory to be set.
