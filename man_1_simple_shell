@@ -1,7 +1,7 @@
-NAME
+##NAME
 simple_shell
 
-LIBRARIES USED
+###LIBRARIES USED
 <stdio.h>
 <stddef.h>
 <stdlib.h>
@@ -10,7 +10,7 @@ LIBRARIES USED
 <sys/types.h>
 <sys/wait.h>
 
-SYNOPSIS
+###PROTOTYPES
 char **tokenize(char *buffer, char *delimiter);
 int forkcecute(char **cmd_ln);
 void free_array(char **array);
@@ -18,21 +18,21 @@ void *_memset(void *mem, int val, size_t bytes);
 char *_strdup(char *str);
 char *get_env(const char *name);
 
-DESCRIPTION
+###DESCRIPTION
 This function is constructed with the goal of allowing it to react, accept and produce output
 in the same way as shell. It is capable of performing all operations that a shell can perform
 based on output received by the shell input by the user. It also is capable of accepting and
 performing operations in non interactive mode once the shell is opened in that mode. The shell
 commands that can be input by the user is the same amount as the commands included in bash.
 
-RETURN VALUE
+###RETURN VALUE
 Depending on the operation performed, there are various different return data types and values that the user would recieve.
 There also returns that are not displayed to the user.
 
-OPTIONS
-N/A
+###OPTIONS
+See Bash documentation for full list.
 
-EXAMPLES
+##EXAMPLES
 $ /bin/ls
 
 This will navigate to the bin file and list all of the files inside of said file.
@@ -41,5 +41,5 @@ $ /bin/pwd
 
 This will display the full path leading to the pwd executable starting at root.
 
-AUTHOR
+###AUTHOR
 Nathan Rhys and Danny McGeough
