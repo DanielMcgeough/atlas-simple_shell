@@ -1,4 +1,27 @@
 #include "main_shell.h"
+
+/**
+ * get_xpath - searches the directories in the environment path
+ * for a filename that matches a specified string.
+ *
+ * @command: the char string containing the filename
+ * to be searched for.
+ *
+ * Return: if a match is found, returns a pointer to a string
+ * containing the executable path for the command. NULL on failure.
+ */
+
+char *get_xpath(char *command)
+{
+	char *path;
+	char *dir;
+
+	path = get_env("PATH");
+	dir = strtok(path, ":");
+
+	while (dir != NULL)
+
+
 /**
 * forkcecute- to fork and execute a process
 * @cmd_ln: the command line passed in to the shell
