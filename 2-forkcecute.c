@@ -13,7 +13,6 @@ int forkcecute(char **cmd_ln)
 		/* Check for empty arg array */
 		if (cmd_ln == NULL || cmd_ln[0] == NULL)
 		{
-			/*perror("forkcecute cmd_ln empty");*/
 			return (-1);
 		}
 
