@@ -1,4 +1,11 @@
 #include "main_shell.h"
+
+/**
+* get_env- gets the environment variable
+* @name: the name is the var for strings
+* Return: returns a char
+*/
+
 char *get_env(const char *name)
 {
 	int i = 0;

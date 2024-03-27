@@ -14,5 +14,6 @@ int forkcecute(char **cmd_ln);
 void free_array(char **array);
 void *_memset(void *mem, int val, size_t bytes);
 char *_strdup(char *str);
+char *get_env(const char *name);
 
 #endif
