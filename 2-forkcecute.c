@@ -15,12 +15,20 @@ char *get_xpath(char *command)
 {
 	char *path;
 	char *dir;
+	char *xpath;
 
 	path = get_env("PATH");
 	dir = strtok(path, ":");
 
 	while (dir != NULL)
 
+		dir = strtok(NULL, ":");
+		sprintf(xpath, "%s/%s",dir, command);
+		if access(xpath, X_OK)
+			{
+				return (xpath);
+			}
+}
 
 /**
 * forkcecute- to fork and execute a process
@@ -39,6 +47,9 @@ int forkcecute(char **cmd_ln)
 			free_array(cmd_ln);
 			return (-1);
 		}
+
+		get_xpath(cmd_ln[0]);
+		/*INSERT REALLOC FUNC HERE*/
 
 		pid = fork();
 		if (pid == -1)
