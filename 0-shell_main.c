@@ -18,7 +18,8 @@ int main(void)
 
 		while (1)
 		{
-			printf("$ ");
+			if (isatty(STDIN_FILENO))
+				printf("$ ");
 			bytes_read = getline(&buffer, &buffsize, stdin);
 			if (bytes_read == -1)
 			{
