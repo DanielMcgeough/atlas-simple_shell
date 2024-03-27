@@ -1,19 +1,24 @@
 #include "main_shell.h"
 
 /*
- * _memset- re-sets every char in a string to \0.
+ * _memset- sets a specified number of bytes in given memory to
+ * a specified value.
  *
- * @str: pointer to the char string to be set.
+ * @mem: pointer to the first byte in memory to be set.
+ *
+ * @val: the value to be set for each byte.
+ *
+ * @bytes: the number of bytes in memory to be set.
  *
  * Return: a pointer to the string.
  */
 
-char *_memset(char *str)
+void *_memset(void *mem, int val, size_t bytes)
 {
-	int i = 0, len;
+	unsigned char *ptr;
 
-	len = strlen(str);
-	while (i < len)
-		str[i] = '\0';
-	return (str);
+	ptr = mem;
+	while (bytes-- > 0)
+		*ptr++ = (unsigned char)val;
+	return (mem);
 }

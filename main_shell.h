@@ -12,6 +12,6 @@
 char **tokenize(char *buffer, char *delimiter);
 int forkcecute(char **cmd_ln);
 void free_array(char **array);
-char *_memset(char *str);
+void *_memset(void *mem, int val, size_t bytes);
 
 #endif

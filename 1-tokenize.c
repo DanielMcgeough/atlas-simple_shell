@@ -25,7 +25,7 @@ char **tokenize(char *buffer, char *delimiter)
 		{
 			perror("tokenize malloc array failure");
 			/*added*/
-			memset(buffer, '\0', 4095);
+			_memset(buffer, '\0', 4095);
 			return (NULL);
 		}
 
@@ -38,7 +38,7 @@ char **tokenize(char *buffer, char *delimiter)
 				perror("tokenize strdup array failure]");
 				/*added following 2 lines*/
 				free_array(array);
-				memset(buffer, '\0', 4095);
+				_memset(buffer, '\0', 4095);
 				/*for (l = 0; l < i; l++)
 				{
 					free(array[l]);
@@ -50,6 +50,6 @@ char **tokenize(char *buffer, char *delimiter)
 			portion = strtok(NULL, delimiter);
 		}
 		array[i] = NULL;
-		memset(buffer, '\0', 4095);
+		_memset(buffer, '\0', 4095);
 		return (array);
 }
