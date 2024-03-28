@@ -1,6 +1,6 @@
 #include "main_shell.h"
 
-envar_node *create_node(char *key_val)
+envar_node *create_node(char *value)
 {
 	envar_node *new_node = (envar_node *)malloc(sizeof(envar_node));
 	if (new_node == NULL)
@@ -80,36 +80,37 @@ void free_list(envar_node *head)
 }
 
 /* Function to convert a doubly linked list to an array */
-char **listToArray(struct envar_node *head) {
-    int count = 0;
+char **listToArray(struct envar_node *head) 
+{
+	int count = 0;
 	char **array = NULL;
-    struct envar_node *current = head;
+	envar_node *current = head;
 	int i = 0;
 
-    // Count the number of nodes in the linked list
-    while (current != NULL) {
-        count++;
-        current = current->next;
-    }
-
-    // Allocate memory for the array of strings
-    array = (char **)malloc((count + 1) * sizeof(char *));
-    if (array == NULL) {
-        exit(EXIT_FAILURE);
-
-    // Copy the data from the linked list to the array
-    current = head;
-    for (i = 0; i < count; i++) {
-        array[i] = _strdup(current->key_val);
-        if (array[i] == NULL) {
-            exit(EXIT_FAILURE);
-        }
-        current = current->next;
-    }
-
-    // Set the last element of the array to NULL to mark the end
-    array[count] = NULL;
-	free_list(head);
-    return (array);
+	/* Count the number of nodes in the linked list */
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
 	}
+	/* Allocate memory for the array of strings */
+	array = (char **)malloc((count + 1) * sizeof(char *));
+	if (array == NULL)
+		exit(EXIT_FAILURE);
+	/* Copy the data from the linked list to the array */
+	current = head;
+	for (i = 0; i < count; i++)
+	{
+		array[i] = _strdup(current->key_val);
+		if (array[i] == NULL)
+		{
+			free_list(head);
+			exit(EXIT_FAILURE);
+		}
+		current = current->next;
+	}
+	/* Set the last element of the array to NULL to mark the end */
+	array[count] = NULL;
+	free_list(head);
+	return (array);
 }
