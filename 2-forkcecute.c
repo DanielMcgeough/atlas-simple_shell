@@ -18,6 +18,14 @@ char *get_xpath(char *command)
 	char *xpath;
 	char *path_copy;
 
+	if (command[0] == '/' && !access(command, X_OK))
+	{
+		xpath = _strdup(command);
+		if (xpath == NULL)
+			return (NULL);
+		return (xpath);
+	}
+		
 	path = get_env("PATH");
 	path_copy = _strdup(path);
 	dir = strtok(path_copy, ":");
