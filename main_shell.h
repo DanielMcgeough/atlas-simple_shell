@@ -9,6 +9,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+typedef struct envar_node
+{
+	char *key_val;
+	struct envar_node *prev;
+	struct envar_node *next;
+} envar_node;
+
 char **tokenize(char *buffer, char *delimiter);
 int forkcecute(char **cmd_ln);
 void free_array(char **array);
