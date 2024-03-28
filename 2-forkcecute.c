@@ -15,17 +15,21 @@ char *get_xpath(char *command)
 {
 	char *path;
 	char *dir;
-	char *xpath = NULL;
+	char *xpath;
 
 	path = get_env("PATH");
 	dir = strtok(path, ":");
 
 	while (dir != NULL)
 	{
+		xpath = malloc(strlen(dir) + strlen(command) + 2);
+		if (xpath == NULL)
+			return (NULL);
 		sprintf(xpath, "%s/%s",dir, command);
-		if (access(xpath, X_OK))
+		if (!access(xpath, X_OK))
 			return (xpath);
 		dir = strtok(NULL, ":");
+		free(xpath);
 	}
 	return (NULL);
 }
@@ -53,6 +57,7 @@ int forkcecute(char **cmd_ln)
 	pid = fork();
 	if (pid == -1)
 	{
+		free(xpath);
 		perror("fork failed");
 		return (-1);
 	}
@@ -62,6 +67,7 @@ int forkcecute(char **cmd_ln)
 		/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
 		if (execve(xpath, cmd_ln, envp) == -1)
 		{
+			free(xpath);
 			free_array(cmd_ln);
 			/*perror("execve failed");*/
 			exit(EXIT_FAILURE);
@@ -75,6 +81,7 @@ int forkcecute(char **cmd_ln)
 		wait(NULL);
 		/*printf("Child process %d exited\n", pid);*/
 	}
+	free(xpath);
 	free_array(cmd_ln);
 	return (0);
 }

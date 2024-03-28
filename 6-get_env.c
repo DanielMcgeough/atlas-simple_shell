@@ -16,10 +16,7 @@ char *get_env(const char *key)
 	while (environ[i] != NULL)
 	{
 		if (strncmp(key, environ[i], length) == 0  && environ[i][length] == '=')
-		{
-			printf("%s\n", environ[i]);
 			return(environ[i] + length + 1);
-		}
 		i++;
 	}
 	return(NULL);
