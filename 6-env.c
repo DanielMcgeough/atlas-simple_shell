@@ -107,6 +107,6 @@ char **listToArray(struct envar_node *head) {
 
     // Set the last element of the array to NULL to mark the end
     array[count] = NULL;
-
+	free_list(head);
     return array;
 }
