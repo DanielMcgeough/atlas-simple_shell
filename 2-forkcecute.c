@@ -16,26 +16,30 @@ char *get_xpath(char *command)
 	char *path;
 	char *dir;
 	char *xpath;
+	char *path_copy;
 
 	path = get_env("PATH");
-	dir = strtok(path, ":");
+	path_copy = _strdup(path);
+	dir = strtok(path_copy, ":");
 
 	while (dir != NULL)
 	{
 		xpath = malloc(strlen(dir) + strlen(command) + 2);
 		if (xpath == NULL)
+		{
+			free(path_copy);
 			return (NULL);
+		}
 		sprintf(xpath, "%s/%s",dir, command);
-		printf("xpath attempt %s\n", xpath);
 		if (!access(xpath, X_OK))
 		{
-			printf("successful xpath was %s\n", xpath);
+			free(path_copy);
 			return (xpath);
 		}
 		dir = strtok(NULL, ":");
-		printf("next dir to check is %s\n", dir);
 		free(xpath);
 	}
+	free(path_copy);
 	return (NULL);
 }
 
