@@ -26,9 +26,14 @@ char *get_xpath(char *command)
 		if (xpath == NULL)
 			return (NULL);
 		sprintf(xpath, "%s/%s",dir, command);
+		printf("xpath attempt %s\n", xpath);
 		if (!access(xpath, X_OK))
+		{
+			printf("successful xpath was %s\n", xpath);
 			return (xpath);
+		}
 		dir = strtok(NULL, ":");
+		printf("next dir to check is %s\n", dir);
 		free(xpath);
 	}
 	return (NULL);
