@@ -15,19 +15,19 @@ char *get_xpath(char *command)
 {
 	char *path;
 	char *dir;
-	char *xpath;
+	char *xpath = NULL;
 
 	path = get_env("PATH");
 	dir = strtok(path, ":");
 
 	while (dir != NULL)
-
+	{
 		dir = strtok(NULL, ":");
 		sprintf(xpath, "%s/%s",dir, command);
-		if access(xpath, X_OK)
-			{
-				return (xpath);
-			}
+		if (access(xpath, X_OK))
+			return (xpath);
+	}
+	return (NULL);
 }
 
 /**
@@ -37,44 +37,44 @@ char *get_xpath(char *command)
 */
 int forkcecute(char **cmd_ln)
 {
-		pid_t pid;
-		/* char *args[]= {"ls", "-l", "/tmp", NULL};*/
-		char *envp[] = {NULL};
+	char *xpath;
+	pid_t pid;
+	/* char *args[]= {"ls", "-l", "/tmp", NULL};*/
+	char *envp[] = {NULL};
 
-		/* Check for empty arg array */
-		if (cmd_ln == NULL || cmd_ln[0] == NULL)
+	/* Check for empty arg array */
+	if (cmd_ln == NULL || cmd_ln[0] == NULL)
+	{
+		free_array(cmd_ln);
+		return (-1);
+	}
+	xpath = get_xpath(cmd_ln[0]);
+	/*INSERT REALLOC FUNC HERE*/
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("fork failed");
+		return (-1);
+	}
+	else if (pid == 0)
+	{
+		/* Child process */
+		/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
+		if (execve(xpath, cmd_ln, envp) == -1)
 		{
 			free_array(cmd_ln);
-			return (-1);
+			/*perror("execve failed");*/
+			exit(EXIT_FAILURE);
 		}
-
-		get_xpath(cmd_ln[0]);
-		/*INSERT REALLOC FUNC HERE*/
-
-		pid = fork();
-		if (pid == -1)
-		{
-			perror("fork failed");
-			return (-1);
-		}
-		else if (pid == 0)
-		{
-			/* Child process */
-			/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
-			if (execve(cmd_ln[0], cmd_ln, envp) == -1)
-			{
-				/*perror("execve failed");*/
-				exit(EXIT_FAILURE);
-			}
-			/* exit(EXIT_SUCCESS); */
-		}
-		else
-		{
-			/* Parent process */
-			/* Wait for the child to exit */
-			wait(NULL);
-			/*printf("Child process %d exited\n", pid);*/
-		}
-		free_array(cmd_ln);
-		return (0);
+		/* exit(EXIT_SUCCESS); */
+	}
+	else
+	{
+		/* Parent process */
+		/* Wait for the child to exit */
+		wait(NULL);
+		/*printf("Child process %d exited\n", pid);*/
+	}
+	free_array(cmd_ln);
+	return (0);
 }
