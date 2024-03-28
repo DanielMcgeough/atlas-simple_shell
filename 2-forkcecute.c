@@ -22,10 +22,10 @@ char *get_xpath(char *command)
 
 	while (dir != NULL)
 	{
-		dir = strtok(NULL, ":");
 		sprintf(xpath, "%s/%s",dir, command);
 		if (access(xpath, X_OK))
 			return (xpath);
+		dir = strtok(NULL, ":");
 	}
 	return (NULL);
 }
