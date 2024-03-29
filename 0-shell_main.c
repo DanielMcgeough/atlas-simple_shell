@@ -37,7 +37,10 @@ int main(int ac, char **av)
 			}
 			cmd_ln = tokenize(buffer, " ");
 			if (forkcecute(cmd_ln) == -1)
+			{
 				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
+				exit(127);
+			}
 		}
 		return (0);
 }
