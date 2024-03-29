@@ -5,7 +5,7 @@
 * Return: returns an int
 */
 
-int main(int ac, char **av)
+int main(int ac, char **av, char **env)
 {
 	int status;
 	char *buffer;
@@ -36,6 +36,13 @@ int main(int ac, char **av)
 				free(buffer);
 				break;
 			}
+			if (strncmp(buffer, "env", 3) == 0)
+			{
+				print_environment(env);
+				free(buffer);
+				break;
+				/*continue;*/
+			}
 			cmd_ln = tokenize(buffer, " ");
 			status = forkcecute(cmd_ln);
 			if (status == -1)
@@ -51,8 +58,6 @@ int main(int ac, char **av)
 				free_array(cmd_ln);
 				exit(2);
 			}
-		print_environment();
-		return 0;
 		}
 		return (0);
 }
