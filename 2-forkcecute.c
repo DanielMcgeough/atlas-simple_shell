@@ -62,6 +62,7 @@ int forkcecute(char **cmd_ln)
 {
 	char *xpath;
 	pid_t pid;
+	int status;
 	/* char *args[]= {"ls", "-l", "/tmp", NULL};*/
 	char *envp[] = {NULL};
 
@@ -102,7 +103,9 @@ int forkcecute(char **cmd_ln)
 	{
 		/* Parent process */
 		/* Wait for the child to exit */
-		wait(NULL);
+		wait(&status);
+		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+			exit(WEXITSTATUS(status));
 		/*printf("Child process %d exited\n", pid);*/
 	}
 	free(xpath);
