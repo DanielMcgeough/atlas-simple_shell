@@ -28,5 +28,6 @@ envar_node *env_list(char *path);
 char *get_env(const char *key);
 void free_list(envar_node *head);
 char **listToArray(struct envar_node *head);
+int str_chr(char *s, char c);
 
 #endif

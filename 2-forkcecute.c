@@ -18,7 +18,7 @@ char *get_xpath(char *command)
 	char *xpath;
 	char *path_copy;
 
-	if (command[0] == '/' && !access(command, X_OK))
+	if (str_chr(command, '/') && !access(command, X_OK))
 	{
 		xpath = _strdup(command);
 		if (xpath == NULL)
