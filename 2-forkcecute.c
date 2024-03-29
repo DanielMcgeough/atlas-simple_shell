@@ -94,7 +94,7 @@ int forkcecute(char **cmd_ln)
 			free(xpath);
 			free_array(cmd_ln);
 			/*perror("execve failed");*/
-			exit(EXIT_FAILURE);
+			exit(2);
 		}
 		/* exit(EXIT_SUCCESS); */
 	}
