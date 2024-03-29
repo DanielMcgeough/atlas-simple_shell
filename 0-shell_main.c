@@ -7,6 +7,7 @@
 
 int main(int ac, char **av)
 {
+	int status;
 	char *buffer;
 	char **cmd_ln = NULL;
 	size_t buffsize = 4095;
@@ -36,12 +37,19 @@ int main(int ac, char **av)
 				break;
 			}
 			cmd_ln = tokenize(buffer, " ");
-			if (forkcecute(cmd_ln) == -1)
+			status = forkcecute(cmd_ln);
+			if (status == -1)
 			{
 				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
 				free(buffer);
 				free_array(cmd_ln);
 				exit(127);
+			}
+			else if (status == 2)
+			{
+				free(buffer);
+				free_array(cmd_ln);
+				exit(status);
 			}
 		}
 		return (0);

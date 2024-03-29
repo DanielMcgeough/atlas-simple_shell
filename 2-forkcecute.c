@@ -104,15 +104,16 @@ int forkcecute(char **cmd_ln)
 		/* Parent process */
 		/* Wait for the child to exit */
 		wait(&status);
-		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+		/*if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 		{
+			free(buffer);
 			free(xpath);
 			free_array(cmd_ln);
 			exit(WEXITSTATUS(status));
 		}
-		/*printf("Child process %d exited\n", pid);*/
+		printf("Child process %d exited\n", pid);*/
 	}
 	free(xpath);
 	free_array(cmd_ln);
-	return (0);
+	return (status);
 }
