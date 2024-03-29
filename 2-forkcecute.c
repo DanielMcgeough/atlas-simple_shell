@@ -27,6 +27,8 @@ char *get_xpath(char *command)
 	}
 		
 	path = get_env("PATH");
+	if (path == NULL)
+		retrun (NULL);
 	path_copy = _strdup(path);
 	dir = strtok(path_copy, ":");
 

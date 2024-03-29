@@ -39,6 +39,8 @@ int main(int ac, char **av)
 			if (forkcecute(cmd_ln) == -1)
 			{
 				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
+				free(buffer);
+				free_array(cmd_ln);
 				exit(127);
 			}
 		}
