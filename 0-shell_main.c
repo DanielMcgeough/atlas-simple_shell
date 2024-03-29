@@ -49,7 +49,7 @@ int main(int ac, char **av)
 			{
 				free(buffer);
 				free_array(cmd_ln);
-				exit(status);
+				exit(WEXITSTATUS(status));
 			}
 		}
 		return (0);
