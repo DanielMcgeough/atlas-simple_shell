@@ -29,5 +29,6 @@ char *get_env(const char *key);
 void free_list(envar_node *head);
 char **listToArray(struct envar_node *head);
 int str_chr(char *s, char c);
+void print_environment(void);
 
 #endif

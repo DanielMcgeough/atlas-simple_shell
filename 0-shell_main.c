@@ -51,6 +51,8 @@ int main(int ac, char **av)
 				free_array(cmd_ln);
 				exit(2);
 			}
+		print_environment();
+		return 0;
 		}
 		return (0);
 }
