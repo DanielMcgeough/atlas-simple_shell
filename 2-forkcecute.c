@@ -109,6 +109,7 @@ int forkcecute(char **cmd_ln)
 			free(xpath);
 			free_array(cmd_ln);
 			exit(WEXITSTATUS(status));
+		}
 		/*printf("Child process %d exited\n", pid);*/
 	}
 	free(xpath);
