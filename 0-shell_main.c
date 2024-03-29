@@ -5,7 +5,7 @@
 * Return: returns an int
 */
 
-int main(void)
+int main(int ac, char **av)
 {
 	char *buffer;
 	char **cmd_ln = NULL;
@@ -36,7 +36,8 @@ int main(void)
 				break;
 			}
 			cmd_ln = tokenize(buffer, " ");
-			forkcecute(cmd_ln);
+			if (forkcecute(cmd_ln) == -1)
+				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
 		}
 		return (0);
 }

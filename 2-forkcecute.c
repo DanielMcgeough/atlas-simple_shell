@@ -70,11 +70,16 @@ int forkcecute(char **cmd_ln)
 		return (-1);
 	}
 	xpath = get_xpath(cmd_ln[0]);
-	/*INSERT REALLOC FUNC HERE*/
+	if (xpath == NULL)
+	{
+		free(xpath);
+		return (-1);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
 		free(xpath);
+		free_array(cmd_ln);
 		perror("fork failed");
 		return (-1);
 	}
