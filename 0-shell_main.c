@@ -7,7 +7,6 @@
 
 int main(int ac, char **av, char **env)
 {
-	int status;
 	char *buffer;
 	char **cmd_ln = NULL;
 	size_t buffsize = 4095;
@@ -44,18 +43,12 @@ int main(int ac, char **av, char **env)
 				/*continue;*/
 			}
 			cmd_ln = tokenize(buffer, " ");
-			status = forkcecute(cmd_ln);
-			if (status != 0)
+			if (forkcecute(cmd_ln) == -1)
 			{
 				free(buffer);
 				free_array(cmd_ln);
-				if (status == 2)
-					exit(2);
-				if (status == -1)
-				{
-					fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
+				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
 				exit(127);
-				}
 			}
 		}
 		return (0);
