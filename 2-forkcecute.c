@@ -76,7 +76,7 @@ int forkcecute(char **cmd_ln)
 	if (xpath == NULL)
 	{
 		free(xpath);
-		return (-1);
+		return (2);
 	}
 	pid = fork();
 	if (pid == -1)
@@ -94,24 +94,15 @@ int forkcecute(char **cmd_ln)
 		{
 			free(xpath);
 			free_array(cmd_ln);
-			/*perror("execve failed");*/
-			exit(2);
+			exit(EXIT_FAILURE);
 		}
 		/* exit(EXIT_SUCCESS); */
 	}
 	else
 	{
 		/* Parent process */
-		/* Wait for the child to exit */
+		/* Wait for the child to complete */
 		wait(&status);
-		/*if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-		{
-			free(buffer);
-			free(xpath);
-			free_array(cmd_ln);
-			exit(WEXITSTATUS(status));
-		}
-		printf("Child process %d exited\n", pid);*/
 	}
 	free(xpath);
 	free_array(cmd_ln);

@@ -52,12 +52,6 @@ int main(int ac, char **av, char **env)
 				free_array(cmd_ln);
 				exit(127);
 			}
-			else if (status == 2)
-			{
-				free(buffer);
-				free_array(cmd_ln);
-				exit(2);
-			}
 		}
 		return (0);
 }
