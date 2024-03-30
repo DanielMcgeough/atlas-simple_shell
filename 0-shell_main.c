@@ -45,12 +45,17 @@ int main(int ac, char **av, char **env)
 			}
 			cmd_ln = tokenize(buffer, " ");
 			status = forkcecute(cmd_ln);
-			if (status == -1)
+			if (status != 0)
 			{
-				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
 				free(buffer);
 				free_array(cmd_ln);
+				if (status == 2)
+					exit(2);
+				if (status == -1)
+				{
+					fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
 				exit(127);
+				}
 			}
 		}
 		return (0);
