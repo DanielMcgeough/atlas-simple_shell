@@ -36,7 +36,7 @@ int main(/*int ac, char **av, char **env*/)
 			if (strncmp(buffer, "exit", 4) == 0)
 			{
 				free(buffer);
-				exit(errno);
+				exit(status);
 			}
 			if (strncmp(buffer, "env", 3) == 0)
 			{
