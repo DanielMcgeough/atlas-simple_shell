@@ -8,7 +8,7 @@
 
 int main(/*int ac, char **av, char **env*/)
 {
-	int status;
+	int status = 0;
 	char *buffer;
 	char **cmd_ln = NULL;
 	size_t buffsize = 4095;
