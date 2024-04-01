@@ -16,3 +16,23 @@ void print_environment(char **env)
 		i++;
 	}
 }
+
+/**
+*get_env- gets path from environment
+*@key: char to select value
+*Return: returns a char 
+*/
+char *get_env(const char *key)
+{
+	extern char **environ;
+	int i = 0;
+	size_t length;
+	length = strlen(key);
+	while (environ[i] != NULL)
+	{
+		if (strncmp(key, environ[i], length) == 0  && environ[i][length] == '=')
+			return(environ[i] + length + 1);
+		i++;
+	}
+	return(NULL);
+}

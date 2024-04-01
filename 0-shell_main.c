@@ -31,7 +31,7 @@ int main(int ac, char **av, char **env)
 			else if (bytes_read == 1)
 				continue;
 			buffer[bytes_read - 1] = '\0';
-			built_ins(buffer, status);
+			built_ins(buffer, status, env);
 			cmd_ln = tokenize(buffer, " ");
 			status = (forkcecute(cmd_ln));
 			if (status == -1)

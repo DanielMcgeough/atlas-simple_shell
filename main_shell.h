@@ -25,6 +25,6 @@ char *get_env(const char *name);
 char *get_xpath(char *command);
 int str_chr(char *s, char c);
 void print_environment(char **env);
-void built_ins(char *buffer, int status);
+void built_ins(char *buffer, int status, char **env);
 
 #endif
