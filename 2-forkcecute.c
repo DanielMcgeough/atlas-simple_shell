@@ -103,6 +103,7 @@ int forkcecute(char **cmd_ln)
 		/* Parent process */
 		/* Wait for the child to complete */
 		wait(&status);
+		status = WEXITSTATUS (status);
 	}
 	free(xpath);
 	free_array(cmd_ln);
