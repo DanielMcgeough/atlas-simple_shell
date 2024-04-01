@@ -5,7 +5,7 @@
 *@buffer: string that has been filled in main
 *@status: Int to represent current process status.
 *@env: vector of environment.
-*Returns: returns an int.
+*Return: returns an int.
 */
 int built_ins(char *buffer, int status, char **env)
 {
