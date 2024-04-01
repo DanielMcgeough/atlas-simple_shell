@@ -1,5 +1,4 @@
 #include "main_shell.h"
-#include <errno.h>
 
 /**
 * main- this is the function to setup inputs
