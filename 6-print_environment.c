@@ -1,7 +1,9 @@
 #include "main_shell.h"
 
 /*
-*print environment
+*print environment- prints the environment.
+*@env: it stands for environment.
+*Return: returns a void.
 */
 extern char **environ;
 
