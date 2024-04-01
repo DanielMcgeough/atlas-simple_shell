@@ -76,8 +76,7 @@ int forkcecute(char **cmd_ln)
 	if (xpath == NULL)
 	{
 		free(xpath);
-		perror(NULL);
-		return (127);
+		return (-1);
 	}
 	pid = fork();
 	if (pid == -1)

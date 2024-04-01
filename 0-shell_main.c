@@ -6,14 +6,13 @@
 * Return: returns an int
 */
 
-int main(/*int ac, char **av, char **env*/)
+int main(int ac, char **av, char **env)
 {
 	int status = 0;
 	char *buffer;
 	char **cmd_ln = NULL;
 	size_t buffsize = 4095;
 	ssize_t bytes_read;
-	extern char **environ;
 
 	buffer = (char *)malloc(sizeof(char) * buffsize);
 		if (buffer == NULL)
@@ -41,22 +40,20 @@ int main(/*int ac, char **av, char **env*/)
 			}
 			if (strncmp(buffer, "env", 3) == 0)
 			{
-				print_environment(environ);
+				print_environment(env);
 				free(buffer);
 				break;
 				/*continue;*/
 			}
 			cmd_ln = tokenize(buffer, " ");
 			status = (forkcecute(cmd_ln));
-			/*if (status != 0)
+			if (status == -1)
 			{
-				free(buffer);
-				perror(NULL);
-				printf("status %d\nerrno %d\n", status, errno);
-				free_array(cmd_ln);
 				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);
+				free(buffer);
+				free_array(cmd_ln);
 				exit(127);
-			}*/
+			}
 		}
 		return (status);
 }
