@@ -10,7 +10,6 @@
  * Return: if a match is found, returns a pointer to a string
  * containing the executable path for the command. NULL on failure.
  */
-
 char *get_xpath(char *command)
 {
 	char *path;
@@ -25,7 +24,6 @@ char *get_xpath(char *command)
 			return (NULL);
 		return (xpath);
 	}
-		
 	path = get_env("PATH");
 	if (path == NULL)
 		return (NULL);
@@ -40,7 +38,7 @@ char *get_xpath(char *command)
 			free(path_copy);
 			return (NULL);
 		}
-		sprintf(xpath, "%s/%s",dir, command);
+		sprintf(xpath, "%s/%s", dir, command);
 		if (!access(xpath, X_OK))
 		{
 			free(path_copy);
@@ -87,23 +85,13 @@ int forkcecute(char **cmd_ln)
 		return (-1);
 	}
 	else if (pid == 0)
-	{
 		/* Child process */
-		/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
 		execve(xpath, cmd_ln, envp);
-		/*{
-			free(xpath);
-			free_array(cmd_ln);
-			exit(EXIT_FAILURE);
-
-		}*/
-	}
 	else
 	{
 		/* Parent process */
-		/* Wait for the child to complete */
 		wait(&status);
-		status = WEXITSTATUS (status);
+		status = WEXITSTATUS(status);
 	}
 	free(xpath);
 	free_array(cmd_ln);

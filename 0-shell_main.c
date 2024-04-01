@@ -5,7 +5,6 @@
 * main- this is the function to setup inputs
 * Return: returns an int
 */
-
 int main(int ac, char **av, char **env)
 {
 	int status = 0;
@@ -17,7 +16,6 @@ int main(int ac, char **av, char **env)
 	buffer = (char *)malloc(sizeof(char) * buffsize);
 		if (buffer == NULL)
 			return (-1);
-
 		while (1)
 		{
 			if (isatty(STDIN_FILENO))
@@ -31,11 +29,9 @@ int main(int ac, char **av, char **env)
 			else if (bytes_read == 1)
 				continue;
 			buffer[bytes_read - 1] = '\0';
-
 			if (strncmp(buffer, "exit", 4) == 0)
 			{
 				free(buffer);
-				/*printf("status at exit call %d\n", status);*/
 				exit(status);
 			}
 			if (strncmp(buffer, "env", 3) == 0)
@@ -43,7 +39,6 @@ int main(int ac, char **av, char **env)
 				print_environment(env);
 				free(buffer);
 				break;
-				/*continue;*/
 			}
 			cmd_ln = tokenize(buffer, " ");
 			status = (forkcecute(cmd_ln));

@@ -3,6 +3,7 @@
 envar_node *create_node(char *value)
 {
 	envar_node *new_node = (envar_node *)malloc(sizeof(envar_node));
+
 	if (new_node == NULL)
 	{
 		return (NULL);
