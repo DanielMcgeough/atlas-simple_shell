@@ -18,7 +18,7 @@ int built_ins(char *buffer, int status, char **env)
 		{
 		print_environment(env);
 		_memset(buffer, '\0', 4095);
-		return(0);
+		return	(0);
 		}
 	return (0);
 }
