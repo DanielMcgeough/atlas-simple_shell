@@ -17,7 +17,7 @@ int built_ins(char *buffer, int status, char **env)
 	if (strncmp(buffer, "env", 3) == 0)
 		{
 		print_environment(env);
-		free(buffer);
+		_memset(buffer, '\0', 4095);
 		return(0);
 		}
 	return (0);
