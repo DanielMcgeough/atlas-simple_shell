@@ -5,9 +5,9 @@
 *@buffer: string that has been filled in main
 *@status: Int to represent current process status.
 *@env: vector of environment.
-*Returns: returns a void.
+*Returns: returns an int.
 */
-void built_ins(char *buffer, int status, char **env)
+int built_ins(char *buffer, int status, char **env)
 {
 	if (strncmp(buffer, "exit", 4) == 0)
 		{
@@ -18,6 +18,7 @@ void built_ins(char *buffer, int status, char **env)
 		{
 		print_environment(env);
 		free(buffer);
-		break;
+		return(0);
 		}
+	return (0);
 }
