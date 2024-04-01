@@ -36,6 +36,7 @@ int main(/*int ac, char **av, char **env*/)
 			if (strncmp(buffer, "exit", 4) == 0)
 			{
 				free(buffer);
+				/*printf("status at exit call %d\n", status);*/
 				exit(status);
 			}
 			if (strncmp(buffer, "env", 3) == 0)

@@ -70,7 +70,7 @@ int forkcecute(char **cmd_ln)
 	if (cmd_ln == NULL || cmd_ln[0] == NULL)
 	{
 		free_array(cmd_ln);
-		return (-1);
+		return (0);
 	}
 	xpath = get_xpath(cmd_ln[0]);
 	if (xpath == NULL)
