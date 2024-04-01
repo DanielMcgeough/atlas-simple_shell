@@ -1,4 +1,8 @@
 #include "main_shell.h"
+
+/*
+*print environment
+*/
 extern char **environ;
 
 void print_environment(char **env)

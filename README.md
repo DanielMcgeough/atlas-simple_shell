@@ -14,7 +14,7 @@
 
 
 ## DESCRIPTION
-The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation.
+The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation. Our shell program does not handle special characters and expicitly tracks what commands are passed in.
 
 The function is similar to the bash shell. The primary focus is on the following functions:
 
@@ -33,7 +33,8 @@ The Shell is designed to perform operations both in interactive mode and non int
 command:- `ls` -
 - `result` -  0-shell_main.c  2-forkcecute.c  4-_memset.c  6-env.c      AUTHORS    hsh           man_1_simple_shell
 1-tokenize.c    3-free_array.c  5-_strdup.c  7-set_env.c  README.md  main_shell.h
-command: 
+
+command:- `pwd` -
 ## HOW TO USE YOUR SHELL
 The best method to use our shell is the same as the normal method to use any other shell. We have tried to make it as seamless as possible.
 
