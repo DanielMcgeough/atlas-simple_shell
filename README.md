@@ -14,7 +14,7 @@
 
 
 ## DESCRIPTION
-The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation. Our shell program does not handle special characters and expicitly tracks what commands are passed in.
+The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation. Our shell program does not handle special characters and expicitly tracks what commands are passed in. The symbols it can't handle are ", ', `, \, *, &, #.
 
 The function is similar to the bash shell. The primary focus is on the following functions:
 
