@@ -5,7 +5,7 @@
 *@ac: the count of arguments
 *@av: the vector of arguments
 *@env: the vector of environment variables
-* Return: returns an int
+* Return: returns a status code
 */
 int main(int ac, char **av, char **env)
 {
