@@ -1,7 +1,7 @@
 #include "main_shell.h"
 
 /**
- * _strchr- locates a specified character in a string if it exists.
+ * str_chr- locates a specified character in a string if it exists.
  *
  * @c: the character to be located.
  *
