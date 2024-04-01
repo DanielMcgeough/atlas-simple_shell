@@ -90,13 +90,13 @@ int forkcecute(char **cmd_ln)
 	{
 		/* Child process */
 		/*printf("Child process %d executing %s\n", getpid(),cmd_ln[0]);*/
-		if (execve(xpath, cmd_ln, envp) == -1)
-		{
+		execve(xpath, cmd_ln, envp);
+		/*{
 			free(xpath);
 			free_array(cmd_ln);
 			exit(EXIT_FAILURE);
-		}
-		/* exit(EXIT_SUCCESS); */
+
+		}*/
 	}
 	else
 	{
