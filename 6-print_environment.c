@@ -5,7 +5,6 @@
 *@env: it stands for environment.
 *Return: returns a void.
 */
-extern char **environ;
 
 void print_environment(char **env)
 {

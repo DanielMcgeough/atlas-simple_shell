@@ -28,17 +28,7 @@ int main(int ac, char **av, char **env)
 			else if (bytes_read == 1)
 				continue;
 			buffer[bytes_read - 1] = '\0';
-			if (strncmp(buffer, "exit", 4) == 0)
-			{
-				free(buffer);
-				exit(status);
-			}
-			if (strncmp(buffer, "env", 3) == 0)
-			{
-				print_environment(env);
-				free(buffer);
-				break;
-			}
+			built_ins(buffer, status);
 			cmd_ln = tokenize(buffer, " ");
 			status = (forkcecute(cmd_ln));
 			if (status == -1)
