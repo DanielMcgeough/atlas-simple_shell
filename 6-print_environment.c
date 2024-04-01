@@ -20,19 +20,19 @@ void print_environment(char **env)
 /**
 *get_env- gets path from environment
 *@key: char to select value
+*@env: vector of environment variables
 *Return: returns a char
 */
-char *get_env(const char *key)
+char *get_env(const char *key, char **env)
 {
-	extern char **environ;
 	int i = 0;
 	size_t length;
 
 	length = strlen(key);
-	while (environ[i] != NULL)
+	while (env[i] != NULL)
 	{
-		if (strncmp(key, environ[i], length) == 0  && environ[i][length] == '=')
-			return (environ[i] + length + 1);
+		if (strncmp(key, env[i], length) == 0  && env[i][length] == '=')
+			return (env[i] + length + 1);
 		i++;
 	}
 	return (NULL);

@@ -17,12 +17,12 @@ typedef struct envar_node
 } envar_node;
 
 char **tokenize(char *buffer, char *delimiter);
-int forkcecute(char **cmd_ln);
+int forkcecute(char **cmd_ln, char **env);
 void free_array(char **array);
 void *_memset(void *mem, int val, size_t bytes);
 char *_strdup(char *str);
-char *get_env(const char *name);
-char *get_xpath(char *command);
+char *get_env(const char *name, char **env);
+char *get_xpath(char *command, char **env);
 int str_chr(char *s, char c);
 void print_environment(char **env);
 int built_ins(char *buffer, int status, char **env);

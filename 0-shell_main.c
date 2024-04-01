@@ -33,7 +33,7 @@ int main(int ac, char **av, char **env)
 			buffer[bytes_read - 1] = '\0';
 			built_ins(buffer, status, env);
 			cmd_ln = tokenize(buffer, " ");
-			status = (forkcecute(cmd_ln));
+			status = (forkcecute(cmd_ln, env));
 			if (status == -1)
 			{
 				fprintf(stderr, "%s: %d: %s: not found\n", av[0], ac, cmd_ln[0]);

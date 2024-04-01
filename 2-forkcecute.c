@@ -7,10 +7,12 @@
  * @command: the char string containing the filename
  * to be searched for.
  *
+ * @env: vector of environment variables.
+ *
  * Return: if a match is found, returns a pointer to a string
  * containing the executable path for the command. NULL on failure.
  */
-char *get_xpath(char *command)
+char *get_xpath(char *command, char **env)
 {
 	char *path;
 	char *dir;
@@ -24,7 +26,7 @@ char *get_xpath(char *command)
 			return (NULL);
 		return (xpath);
 	}
-	path = get_env("PATH");
+	path = get_env("PATH", env);
 	if (path == NULL)
 		return (NULL);
 	path_copy = _strdup(path);
@@ -54,9 +56,10 @@ char *get_xpath(char *command)
 /**
 * forkcecute- to fork and execute a process
 * @cmd_ln: the command line passed in to the shell
+* @env: vector of environment variables.
 * Return: returns an int
 */
-int forkcecute(char **cmd_ln)
+int forkcecute(char **cmd_ln, char **env)
 {
 	char *xpath;
 	pid_t pid;
@@ -70,7 +73,7 @@ int forkcecute(char **cmd_ln)
 		free_array(cmd_ln);
 		return (0);
 	}
-	xpath = get_xpath(cmd_ln[0]);
+	xpath = get_xpath(cmd_ln[0], env);
 	if (xpath == NULL)
 	{
 		free(xpath);
