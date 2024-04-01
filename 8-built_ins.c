@@ -1,6 +1,6 @@
 #include "main_shell.h"
 
-/*
+/**
 *built_ins- checks for matches to build in funcs.
 *@buffer: string that has been filled in main
 *@status: Int to represent current process status.

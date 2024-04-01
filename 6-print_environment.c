@@ -1,6 +1,6 @@
 #include "main_shell.h"
 
-/*
+/**
 *print_environment- prints the environment.
 *@env: it stands for environment.
 *Return: returns a void.
