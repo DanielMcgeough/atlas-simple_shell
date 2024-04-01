@@ -1,13 +1,6 @@
-## atlas-simple_shell
-Simple Shell project for the Atlas Jan2024 Cohort.
-This project is primarily written, tested and coded by Nathan Rhys and Danny McGeough.
-The aim of this project is to create a simple shell interface capable of handling certain commands issued by a user and utilize input in ways that closesly mirror other shells like bash.
-The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation.
-The Shell is compiled through the use of the "gcc Wall Werror Wextra -pedantic -std=gnu89 *.c" command. From there, running a.out will grant you entry into the shell where it awaits user input. The project aim is to create a useful and nearly indistinguishable copy of a simple version of any shell currently in use today.
-The project will be coded in VSCode and Terminal.
 # Simple Shell
 
-## NAME\
+## NAME
 `simple_shell` - A custom implementation of a shell.
 
 ## SYNOPSIS
@@ -37,11 +30,12 @@ The Shell is compiled through the use of the "gcc Wall Werror Wextra -pedantic -
 
 ## EXAMPLES
 The Shell is designed to perform operations both in interactive mode and non interactive mode.In interactive mode the shell is designed to recieve commands input by the user and perform the specified option. For instance, if someone were to enter the "ls" command into the interactive mode portion of our shell, it would perform as expected and display a list of all files in the current directory. If one were to add flags to ls, once again it would perform as expected. In non interactive mode, our shell is designed to accept the environment variable full path, tokenize the PATH and perform the necessary operation. ls returns the following:
-0-shell_main.c  2-forkcecute.c  4-_memset.c  6-env.c      AUTHORS    hsh           man_1_simple_shell
+command:- `ls` -
+- `result` -  0-shell_main.c  2-forkcecute.c  4-_memset.c  6-env.c      AUTHORS    hsh           man_1_simple_shell
 1-tokenize.c    3-free_array.c  5-_strdup.c  7-set_env.c  README.md  main_shell.h
-In non interactive mode..................................
-
+command: 
 ## HOW TO USE YOUR SHELL
+The best method to use our shell is the same as the normal method to use any other shell. We have tried to make it as seamless as possible.
 
 ## AUTHOR
 Dany McGeough and Nathan Rhys
