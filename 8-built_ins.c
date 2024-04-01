@@ -7,7 +7,7 @@
 *Returns: returns a void.
 */
 void built_ins(char *buffer, int status)
-
+{
 	if (strncmp(buffer, "exit", 4) == 0)
 		{
 		free(buffer);
@@ -19,3 +19,4 @@ void built_ins(char *buffer, int status)
 		free(buffer);
 		break;
 		}
+}
